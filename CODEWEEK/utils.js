@@ -240,12 +240,13 @@ const resumeCardCreator = (data, div) => {
 
 const formatDate = (num = 0, date = new Date()) => {
   const years = date.getFullYear();
-  const days = date.getDate() + num;
-  if (date.getMonth() < 10) {
+  if (date.getMonth() < 10 || date.getDate() <= 9) {
     const months = "0" + (date.getMonth() + 1);
+    const days = "0" + (date.getDate() + num);
     return years + "-" + months + "-" + days;
   } else {
     const months = date.getMonth() + 1;
+    const days = date.getDate() + num;
     return years + "-" + months + "-" + days;
   }
 };
